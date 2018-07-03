@@ -1,0 +1,14 @@
+form{
+  width: 210px;
+  margin-left:calc(50% - 105px);    
+}
+button{
+  margin-left: calc(50% - 20px);
+}
+.board{
+  margin-left: calc(50% - 515px);
+}
+img{
+  display: inline-block;
+  margin: 6px;
+}
