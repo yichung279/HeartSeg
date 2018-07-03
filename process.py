@@ -1,4 +1,8 @@
 import argparse
+import time
+
+time.sleep(1)
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('images', help='image path ')
