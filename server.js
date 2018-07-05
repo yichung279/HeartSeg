@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const {execFile} = require('child_process')
-const port = 18080
+const port = 8080
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
