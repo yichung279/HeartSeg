@@ -9,11 +9,12 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '/public'))
 
 app.get("/img", function(req, res) {
-  console.log(req.query.fname)
-  execFile('python3', ['./process.py',req.query.fname], (error, stdout, stderr) => {
-    if (error) throw error
-    console.log('aaa')
-    res.send({before: req.query.fname, after: stdout})
+  execFile('python3', ['./heart_seg.py',req.query.fname], (error, stdout, stderr) => {
+    if (error){
+      res.send({img_exist: false})
+    }else{
+      res.send({img_exist: true, before: req.query.fname, after: stdout})
+    }
   })
 })
 

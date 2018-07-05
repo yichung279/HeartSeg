@@ -4,6 +4,7 @@ $(document).ready(function() {
     
     $('#afterImg').remove()
     $('#beforeImg').remove()
+    $('#nofile').remove()
     $('.board').append('<p id="loading">loading</p>')
     
     $.ajax({
@@ -13,11 +14,14 @@ $(document).ready(function() {
         fname: $("#form input[name='fname']").val(),
       },
       success: function(data) {
-        console.log('aaa')
-        $('#loading').remove()
-        $('.board').append('<img id="beforeImg" src="' + data.before + '"></img>')
-        $('.board').append('<img id="afterImg" src="' +data.after + '"></img>')
-      
+        if(data.img_exist){
+          $('#loading').remove()
+          $('.board').append('<img id="beforeImg" src="data/' + data.before + '"></img>')
+          $('.board').append('<img id="afterImg" src="result/' +data.after + '"></img>')
+        }else{
+          $('#loading').remove()
+          $('.board').append('<p id="nofile">無此檔案</p>')
+        }
       }
     })
   
